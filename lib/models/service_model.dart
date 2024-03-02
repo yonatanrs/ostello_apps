@@ -1,14 +1,9 @@
-import 'package:flutter/material.dart';
-
 class ServiceModel {
-  String title;
-  IconData icon;
+  final String imagePath;
+  final String title;
 
-  ServiceModel({required this.title, required this.icon});
+  ServiceModel({
+    required this.imagePath,
+    required this.title,
+  });
 }
-
-
-
-
-
-

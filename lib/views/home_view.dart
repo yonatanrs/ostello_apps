@@ -7,6 +7,7 @@ import 'package:ostello_apps/views/referral_card.dart';
 import 'package:ostello_apps/views/quick_info_card.dart';
 import 'package:ostello_apps/views/footer_guidance.dart';
 import 'package:ostello_apps/views/bottom_appbar.dart';
+import 'package:ostello_apps/views/start_asessment_card.dart';
 
 class HomeView extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
@@ -71,7 +72,81 @@ class HomeView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ...homeController.topServices.map((service) => ServiceTile(service: service)).toList(),
+            StartAssessmentCard(
+              imagePath: 'assets/images/start-assessment-section.png',
+              buttonText: 'Start Assessment',
+              onPressed: () {
+                // Define what to do when the button is pressed
+              },
+            ),
+            SizedBox(height: 33),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0), // Atur sesuai kebutuhan
+                child: Text(
+                  "Top Services",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 7),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: homeController.topServices
+                  .take(2) // Take the first two services for the top row
+                  .map((service) => Expanded(
+                child: ServiceTile(
+                  service: service,
+                  onTap: () {
+                    // Handle your onTap here
+                  },
+                ),
+              ))
+                  .toList(),
+            ),
+            ServiceTile(
+              service: homeController.topServices.last, // Assume the last one is for the bottom
+              onTap: () {
+                // Handle your onTap here
+              },
+            ),
+            InkWell(
+              onTap: () {
+                print("Refer and Earn tapped");
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0), // Kurangi padding horizontal untuk mengurangi jarak
+                child: Container(
+                  width: double.infinity, // Mengisi lebar layar dengan padding
+                  child: Ink.image(
+                    image: AssetImage(homeController.referAndEarnImagePath.value),
+                    fit: BoxFit.contain, // Memastikan gambar tidak terpotong
+                    height: 150, // Atur tinggi sesuai kebutuhan, disesuaikan untuk menjaga proporsi
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 33),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0), // Atur sesuai kebutuhan
+                child: Text(
+                  "Marketplace",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 19,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 7),
             ...homeController.marketplaceItems.map((item) => MarketplaceCard(marketplaceItem: item)).toList(),
             ...homeController.referrals.map((referral) => ReferralCard(referral: referral)).toList(),
             ...homeController.quickInfos.map((info) => QuickInfoCard(info: info)).toList(),
