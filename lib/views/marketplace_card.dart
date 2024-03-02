@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:ostello_apps/models/marketplace_model.dart';
 
 class MarketplaceCard extends StatelessWidget {
-  final MarketplaceModel marketplaceItem;
+  final MarketplaceModel marketplace;
 
-  MarketplaceCard({required this.marketplaceItem});
+  MarketplaceCard({required this.marketplace});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Icon(marketplaceItem.icon),
-        title: Text(marketplaceItem.title),
-        subtitle: Text(marketplaceItem.description),
+        title: Text(marketplace.title),
+        subtitle: Text(marketplace.description),
       ),
     );
   }

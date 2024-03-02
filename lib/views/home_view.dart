@@ -131,7 +131,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 33),
+            SizedBox(height: 10),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -146,11 +146,70 @@ class HomeView extends StatelessWidget {
                 ),
               ),
             ),
+            InkWell(
+              onTap: () {
+                print("marketplace tapped");
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0), // Kurangi padding horizontal untuk mengurangi jarak
+                child: Container(
+                  width: double.infinity, // Mengisi lebar layar dengan padding
+                  child: Ink.image(
+                    image: AssetImage(homeController.marketplaceImagePath.value),
+                    fit: BoxFit.fill, // Memastikan gambar tidak terpotong
+                    height: 200, // Atur tinggi sesuai kebutuhan, disesuaikan untuk menjaga proporsi
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                print("Refer Swipe tapped");
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0), // Kurangi padding horizontal untuk mengurangi jarak
+                child: Container(
+                  width: double.infinity, // Mengisi lebar layar dengan padding
+                  child: Ink.image(
+                    image: AssetImage(homeController.referSwipeImagePath.value),
+                    fit: BoxFit.contain, // Memastikan gambar tidak terpotong
+                    height: 150, // Atur tinggi sesuai kebutuhan, disesuaikan untuk menjaga proporsi
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 15),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0), // Atur sesuai kebutuhan
+                child: Text(
+                  "Quick Info.",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28,
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                print("Quick Info tapped");
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0), // Kurangi padding horizontal untuk mengurangi jarak
+                child: Container(
+                  width: double.infinity, // Mengisi lebar layar dengan padding
+                  child: Ink.image(
+                    image: AssetImage(homeController.quickinfoImagePath.value),
+                    fit: BoxFit.fill, // Memastikan gambar tidak terpotong
+                    height: 240, // Atur tinggi sesuai kebutuhan, disesuaikan untuk menjaga proporsi
+                  ),
+                ),
+              ),
+            ),
             SizedBox(height: 7),
-            ...homeController.marketplaceItems.map((item) => MarketplaceCard(marketplaceItem: item)).toList(),
-            ...homeController.referrals.map((referral) => ReferralCard(referral: referral)).toList(),
-            ...homeController.quickInfos.map((info) => QuickInfoCard(info: info)).toList(),
-            FooterGuidance(),
           ],
         ),
       ),

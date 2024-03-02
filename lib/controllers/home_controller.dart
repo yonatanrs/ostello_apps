@@ -10,11 +10,11 @@ import 'package:ostello_apps/models/start_asessment_model.dart';
 class HomeController extends GetxController {
   // Remove the duplicate declaration from here if initializing below
   var topServices = <ServiceModel>[].obs;
-  var marketplaceItems = <MarketplaceModel>[].obs;
-  var referrals = <ReferralModel>[].obs;
-  var quickInfos = <QuickInfoModel>[].obs;
-
+  var marketplace = <MarketplaceModel>[].obs;
   final Rx<String> referAndEarnImagePath = 'assets/images/refer-earn.png'.obs;
+  final Rx<String> marketplaceImagePath = 'assets/images/marketplace-section.png'.obs;
+  final Rx<String> referSwipeImagePath = 'assets/images/refer&earn-swipe.png'.obs;
+  final Rx<String> quickinfoImagePath = 'assets/images/quick-info-image.png'.obs;
 
   final startAssessment = StartAssessmentModel(
     imagePath: 'assets/images/start-assessment-section.png',

@@ -75,6 +75,8 @@ flutter:
     - assets/images/top-section-bottom.png
     - assets/images/refer-earn.png
     - assets/images/marketplace-section.png
+    - assets/images/refer&earn-swipe.png
+    - assets/images/quick-info-image.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

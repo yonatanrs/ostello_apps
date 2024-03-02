@@ -22,7 +22,7 @@ class ServiceTile extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical:  1.0),
           child: Image.asset(
             service.imagePath,
-            fit: BoxFit.contain, // Pastikan gambar pas dengan baik dalam wadahnya
+            fit: BoxFit.fill, // Pastikan gambar pas dengan baik dalam wadahnya
           ),
         ),
       ),
